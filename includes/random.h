@@ -6,12 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 16:06:49 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:20:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RANDOM_H
 # define RANDOM_H
+
+# include "../libft/libft.h"
 
 # include <math.h>
 # include <unistd.h>
@@ -36,13 +38,14 @@ typedef struct				s_map
 	unsigned long long		inc;
 	unsigned long long		mod;
 	unsigned long long		period;
-}							t_map
+}							t_map;
 
 unsigned long long	ft_find_period(t_map map);
 void				ft_init_map(t_map *map);
-t_map				ft_best_map(t_map *map);
+t_map				ft_best_map(t_map *map, unsigned long long base_seed);
 int					ft_map(int ac, char **av);
 
+int					ft_strcmp(char *str, char *cmp);
 int					ft_error(char *text);
 int					ft_check(int ac, char **av);
 

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 16:02:32 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:19:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 // this function will find find the period of repetition of
 // Xn+1 = (a * Xn + c) % m
 // seed_n+1 = (mul * seed_n + inc) % mod
-unsigned long long	ft_find_period(t_map map)
+unsigned long long	ft_find_period(t_map map, base_seed)
 {
 	unsigned long long	period;
-	unsigned long long	base_seed;
 	unsigned long long	current_seed;
 	
 	period = 0;

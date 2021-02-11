@@ -6,11 +6,21 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:46:03 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 17:08:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 17:18:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "random.h"
+
+int	ft_strcmp(char *str, char *cmp)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && cmp[i] && str[i] == cmp[i])
+		i++;
+	return (str[i] - cmp[i]);
+}
 
 int	ft_error(char *text);
 {
