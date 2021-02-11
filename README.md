@@ -1,5 +1,5 @@
 ## Find_Randomness
-> Personal project on idea to find randomness and use it.
+Personal project, the idea is to find random sequences and use them or test them.
 
 <br />
 
