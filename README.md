@@ -3,7 +3,7 @@ Personal project, the idea is to find random sequences and use them or test them
 
 <br />
 
-Use make to compile the project
+Use "make" to compile the project
 
 <br />
 
