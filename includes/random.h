@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 15:25:05 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/11 16:06:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,13 @@ typedef struct				s_map
 	unsigned long long		mod;
 	unsigned long long		period;
 }							t_map
+
+unsigned long long	ft_find_period(t_map map);
+void				ft_init_map(t_map *map);
+t_map				ft_best_map(t_map *map);
+int					ft_map(int ac, char **av);
+
+int					ft_error(char *text);
+int					ft_check(int ac, char **av);
 
 #endif
