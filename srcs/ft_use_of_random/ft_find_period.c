@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 19:33:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 21:10:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,15 @@ void					ft_init_map(t_map *map)
 // test 5 seeds, save the average period
 t_map					ft_best_map(t_map *map)
 {
-	t_map	best;
-
+	t_map				best;
+	
 	best.period = 0;
 	while (map->mul < map->end)
 	{
 		map->inc = map->start;
 		while (map->inc < map->end)
 		{
+			printf("\rLoop: [%llu%%]", (map->mul * 100) / map->end);
 			map->mod = map->start;
 			while (map->mod < map->end)
 			{
@@ -92,7 +93,6 @@ t_map					ft_best_map(t_map *map)
 			map->inc++;
 		}
 		map->mul++;
-		printf("\rLoop: [%llu%%]", (map->mul * 100) / map->end);
 	}
 	best.start = map->start;
 	best.end = map->end;
@@ -119,8 +119,8 @@ int						ft_map(int ac, char **av)
 	printf("\nThe best LCG between %llu and %llu is:\n", map.start, map.end);
 	printf("\n\tMul: %llu\n\tInc: %llu\n\tMod: %llu\n",
 				map.mul, map.inc, map.mod);
-	printf("For a Score of: %llu\n", map.period);
-	if (!(ft_strcmp(av[4], "-debug")))
+	printf("For a Score of: %llu%%\n", (map.period + 1) * 100 / map.end);
+	if (av[4] && !(ft_strcmp(av[4], "-debug")))
 		ft_map_debug(map, av);
 	return (0);
 }
