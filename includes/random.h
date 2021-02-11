@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 17:20:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 19:30:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 # define TRUE 1
 # define FALSE 0
 
-# define SEED1 2147483647
-# define SEED2 991372845907
-# define SEED3 284103856433
-# define SEED4 83052976562
-# define SEED5 4
+# define SEEDA 2147483647
+# define SEEDB 991372845907
+# define SEEDC 284103856433
+# define SEEDD 83052976562
+# define SEEDE 4
 
-# define START 300000000
-# define END 900000000
+# define START 30
+# define END 53
 
 typedef struct				s_map
 {
@@ -38,12 +38,18 @@ typedef struct				s_map
 	unsigned long long		inc;
 	unsigned long long		mod;
 	unsigned long long		period;
+	unsigned long long		start;
+	unsigned long long		end;
 }							t_map;
 
-unsigned long long	ft_find_period(t_map map);
+unsigned long long	ft_lcg_empty(t_map map, unsigned long long seed);
+
+unsigned long long	ft_find_period(t_map map, unsigned long long base_seed);
 void				ft_init_map(t_map *map);
-t_map				ft_best_map(t_map *map, unsigned long long base_seed);
+t_map				ft_best_map(t_map *map);
 int					ft_map(int ac, char **av);
+
+void				ft_map_debug(t_map map, char **av);
 
 int					ft_strcmp(char *str, char *cmp);
 int					ft_error(char *text);
