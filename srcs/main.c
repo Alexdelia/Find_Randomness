@@ -6,9 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:05:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 15:53:54 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:07:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "random.h"
 
 int	main(int ac, char **av)
 {

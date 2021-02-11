@@ -6,9 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:46:03 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 16:00:12 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:08:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "random.h"
 
 int	ft_error(char *text);
 {
