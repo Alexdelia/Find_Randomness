@@ -7,11 +7,28 @@ Use "make" to compile the project
 
 <br />
 
-The project accept "./Find_Randomness -LCG" to run the LCG testing part
-> You can precise the Start and the End of loop, otherwise it will run with default value.
+Argument to use:
 
-Example: "% ./Find_Radomness -LCG 30 53"
+-LCG [Start] [End]
+> Run the LCG part, you can precise a Start and an end to search for
 
+> Example: "% ./Find_Randomness -LCG 30 53"
+
+-perf [Value]
+> Run the performance version of LCG finder, you can precise a Value, the program will look close to this value, up to a mod of Value + 15
+
+> Example: "% ./Find_Randomness -perf 200"
+
+-debug
+> Used for personal use, help to debug. It show X random number of the best map found.
+
+> Example: "% ./Find_Randomness -perf 200 -debug"
+
+You can put every argument in the order you want, you only need to have the dependcies of it right after it in the good order.
+> For Example:
+"% ./Find_Randomness -perf 300 -debug" work the same way as "% ./Find_Randomness -debug -perf 300" but "% ./Find_Randomness -perf -debug 300" won't work
+
+For -LCG:
 This will have for effect to find the best period of LCG (https://en.wikipedia.org/wiki/Linear_congruential_generator) for predermined seed
 > (you can find the seeds in ./includes/random.h)
 
