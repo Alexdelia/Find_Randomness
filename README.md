@@ -32,7 +32,7 @@ For -LCG:
 This will have for effect to find the best period of LCG (https://en.wikipedia.org/wiki/Linear_congruential_generator) for predermined seed
 > (you can find the seeds in ./includes/random.h)
 
-The loop Start and End will determine the start and end of multipier, increment and moluo, for example for 30-53:
+The loop Start and End will determine the start and end of multiplier, increment and modulo, for example for 30-53:
 
 The program will try to find the period of 5 same seeeds with: Xn+1 = (a * Xn + c) % m
 
