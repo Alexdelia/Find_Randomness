@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:05:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 17:31:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 21:10:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,21 @@ static int	ft_arg(t_arg *arg, int ac, char **av)
 		{
 			if (!(ft_strcmp(av[i], "-LCG")))
 			{
-				arg.lcg.bol = 1;
+				arg.lcg.bol = TRUE;
 				if (av[i + 1] && av[i + 2])
 				{
 					arg.lcg.start = ft_atoi(av[i + 1];
 					arg.lcg.end = ft_atoi(av[i + 2];
 				}
+				else
+				{
+					arg.lcg.start = START
+					arg.lcg.end = END
+				}
 			}
 			if (!(ft_strcmp(av[i], "-perf")))
 			{
+				arg.perf.bol = TRUE;
 				if (av[i + 1])
 					arg.perf.end = ft_atoi(av[i + 1];
 				else
@@ -50,7 +56,7 @@ int		main(int ac, char **av)
 
 	if (ft_arg(&arg, ac, av) == FALSE)
 		return (0);
-	if (!(ft_strcmp(av[1], "-LCG")))
+	if (arg.lcg.bol == TRUE)
 		ft_map(&arg, ac, av);
 	return (0);
 }
