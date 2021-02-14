@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/14 04:39:31 by user42           ###   ########.fr        #
+#    Updated: 2021/02/14 22:46:04 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ INC =		./includes/
 SRCSNAME = main.c \
 			ft_random/ft_linear_congruential_generator.c \
 			ft_use_of_random/ft_find_period.c \
+			ft_use_of_random/ft_perf.c \
 			ft_use_of_random/ft_map_debug.c \
+			ft_arg.c \
 			ft_utils.c
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSNAME))

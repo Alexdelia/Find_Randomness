@@ -6,25 +6,23 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 19:12:23 by user42            #+#    #+#             */
-/*   Updated: 2021/02/11 19:37:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 23:40:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "random.h"
 
-void	ft_map_debug(t_map map, char **av)
+void	ft_map_debug(t_map map, t_arg arg)
 {
 	unsigned long long	i;
 	unsigned long long	seed;
 
-	if (av[4])
-		seed = ft_atoi(av[4]);
+	if (arg.debug.start)
+		seed = arg.debug.start;
 	else
 		seed = SEEDA;
 	i = 0;
-	ft_putstr_fd("Original seed: ", 1);
-	ft_putstr_fd(av[4], 1);
-	ft_putstr_fd("\n", 1);
+	printf("Original seed: %llu\n", seed);
 	while (i <= (map.period + 3))
 	{
 		seed = ft_lcg_empty(map, seed);

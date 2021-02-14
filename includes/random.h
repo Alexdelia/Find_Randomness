@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 17:30:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 22:50:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,23 @@ typedef struct				s_arg
 {
 	t_ad					lcg;
 	t_ad					perf;
+	t_ad					debug;
 }							t_arg;
+
+int					ft_arg(t_arg *arg, int ac, char **av);
 
 unsigned long long	ft_lcg_empty(t_map map, unsigned long long seed);
 
 unsigned long long	ft_find_period(t_map map, unsigned long long base_seed);
 void				ft_init_map(t_map *map);
 t_map				ft_best_map(t_map *map);
-int					ft_map(int ac, char **av);
+int					ft_map(t_arg arg);
+int					ft_map_perf(t_arg arg);
 
-void				ft_map_debug(t_map map, char **av);
+void				ft_map_debug(t_map map, t_arg arg);
 
 int					ft_strcmp(char *str, char *cmp);
 int					ft_error(char *text);
-int					ft_check(int ac, char **av);
+int					ft_check(t_arg arg, int ac, char **av);
 
 #endif

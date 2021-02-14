@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 21:14:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 22:50:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ t_map					ft_best_map(t_map *map)
 	return (best);
 }
 
-int						ft_map(t_arg arg, int ac, char **av)
+int						ft_map(t_arg arg)
 {
 	t_map				map;
 	unsigned long long	start;
@@ -107,9 +107,9 @@ int						ft_map(t_arg arg, int ac, char **av)
 	ft_init_map(&map);
 	if (arg.lcg.bol == TRUE)
 	{
-		start = arg.lcg.start
+		start = arg.lcg.start;
 		map.start = start;
-		map.end = arg.lcg.end
+		map.end = arg.lcg.end;
 		map.mul = start;
 		map.inc = start;
 		map.mod = start;
@@ -120,7 +120,7 @@ int						ft_map(t_arg arg, int ac, char **av)
 	printf("\n\tMul: %llu\n\tInc: %llu\n\tMod: %llu\n",
 				map.mul, map.inc, map.mod);
 	printf("For a Score of: %llu%%\n", (map.period + 1) * 100 / map.end);
-	if (av[4] && !(ft_strcmp(av[4], "-debug")))
-		ft_map_debug(map, av);
+	if (arg.debug.bol == TRUE)
+		ft_map_debug(map, arg);
 	return (0);
 }

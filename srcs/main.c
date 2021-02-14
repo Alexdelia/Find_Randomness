@@ -6,49 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:05:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 21:10:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 23:13:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "random.h"
-
-static int	ft_arg(t_arg *arg, int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (av[i])
-	{
-		if (av[i][0] == '-')
-		{
-			if (!(ft_strcmp(av[i], "-LCG")))
-			{
-				arg.lcg.bol = TRUE;
-				if (av[i + 1] && av[i + 2])
-				{
-					arg.lcg.start = ft_atoi(av[i + 1];
-					arg.lcg.end = ft_atoi(av[i + 2];
-				}
-				else
-				{
-					arg.lcg.start = START
-					arg.lcg.end = END
-				}
-			}
-			if (!(ft_strcmp(av[i], "-perf")))
-			{
-				arg.perf.bol = TRUE;
-				if (av[i + 1])
-					arg.perf.end = ft_atoi(av[i + 1];
-				else
-					arg.perf.end = PERF;
-			}
-		}
-	}
-	if (ft_check(&arg, ac, av)
-		return (FALSE);
-	return (TRUE);
-}
 
 int		main(int ac, char **av)
 {
@@ -56,8 +18,10 @@ int		main(int ac, char **av)
 
 	if (ft_arg(&arg, ac, av) == FALSE)
 		return (0);
-	if (arg.lcg.bol == TRUE)
-		ft_map(&arg, ac, av);
+	if (arg.perf.bol == TRUE)
+		ft_map_perf(arg);
+	else if (arg.lcg.bol == TRUE)
+		ft_map(arg);
 	return (0);
 }
 
