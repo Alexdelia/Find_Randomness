@@ -6,61 +6,84 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/11 21:04:50 by user42           ###   ########.fr        #
+#    Updated: 2021/02/14 04:39:31 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Find_Randomness
-CC = clang -Wall -Werror -Wextra
-RM = rm -rf
+NAME = 	Find_Randomness
+CC = 	clang -Wall -Werror -Wextra
+RM = 	rm -rf
 
-LBPATH = ./libft/
-LBNAME = $(LBPATH)libft.a
-LBINC = -I$(LBPATH)
+# **************************************************************************** #
 
-SRCSPATH = ./srcs/
-OBJSPATH = ./objs/
-INC = ./includes/
+MAKEFLAGS += --silent
+
+B =		$(shell tput bold)
+BLA =	$(shell tput setaf 0)
+RED =	$(shell tput setaf 1)
+GRE =	$(shell tput setaf 2)
+YEL =	$(shell tput setaf 3)
+BLU =	$(shell tput setaf 4)
+MAG =	$(shell tput setaf 5)
+CYA =	$(shell tput setaf 6)
+WHI =	$(shell tput setaf 7)
+D =		$(shell tput sgr0)
+BEL =	$(shell tput bel)
+CLR =	$(shell tput el 1)
+
+# **************************************************************************** #
+#	 LIB	#
+
+LBPATH =	./libft/
+LBNAME =	$(LBPATH)libft.a
+LBINC =		-I$(LBPATH)
+
+# **************************************************************************** #
+
+SRCSPATH =	./srcs/
+OBJSPATH =	./objs/
+INC =		./includes/
 
 SRCSNAME = main.c \
 			ft_random/ft_linear_congruential_generator.c \
 			ft_use_of_random/ft_find_period.c \
 			ft_use_of_random/ft_map_debug.c \
-			ft_use_of_random/ft_improve_mod.c \
 			ft_utils.c
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSNAME))
-OBJS = $(SRCS:.c=.o)
+OBJSNAME = $(SRCSNAME:.c=.o)
 #OBJS = $(addprefix $(OBJSPATH), $(OBJSNAME))
+OBJS = $(OBJSPATH)*.o
 
-all: $(NAME)
+# *************************************************************************** #
 
-%.o: %.c
-	$(CC) -I$(INC) $(LBINC) -c $< -o $@
-
-$(NAME): $(OBJS)
-	make -C $(LBPATH)
-	$(CC) $(OBJS) $(LBNAME) -L$(LBPATH) $(LBINC) -I$(INC) -o $(NAME)
-	$(info Find_Randomness compiled !)
+all:
+	@make -C $(LBPATH)
+	@mkdir $(OBJSPATH) 2> /dev/null || true
+	@$(CC) -I$(INC) -c $(SRCS)
+	@mv *.o $(OBJSPATH)
+	@$(CC) $(OBJS) $(LBNAME) -L$(LBPATH) $(LBINC) -I$(INC) -o $(NAME)
+	@echo "$(B)$(MAG)$(BEL)\n\tFind_Randomness compiled! Have fun.\n$(D)"
 
 $(LIBFTM):
-	make -C $(LBPATH) -f Makefile
-
-#$(OBJSPATH)%.o : %.c
-#	@mkdir $(OBJSPATH) 2> /dev/null || true
-#	@$(CC) -I $(INC) -c $< -o $@
+	@make -C $(LBPATH) -f Makefile
 
 libft:	$(LIBFTM)
+	@echo "$(B)Libft compiled.$(D)"
 
 clean:
-	$(RM) $(OBJS)
-	make -C $(LBPATH) -f Makefile clean
-#	@rmdir $(OBJSPATH) 2> /dev/null || true
+	@$(RM) $(OBJS)
+	@make -C $(LBPATH) -f Makefile clean
+	@rmdir $(OBJSPATH) 2> /dev/null || true
+	@echo "$(B)Cleared.$(D)"
+
 
 fclean: clean
-	$(RM) $(NAME) $(MLXM)
-	make -C $(LBPATH) -f Makefile fclean
+	@$(RM) $(NAME) $(MLXM)
+	@make -C $(LBPATH) -f Makefile fclean
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all, clean, fclean, re, libft
+
+# **************************************************************************** #

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 21:10:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 21:19:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_map					ft_best_map(t_map *map)
 		map->inc = map->start;
 		while (map->inc < map->end)
 		{
-			printf("\rLoop: [%llu%%]", (map->mul * 100) / map->end);
+			printf("\rLoop: [%llu%%]", (map->mul * 100) / (map->end -1));
 			map->mod = map->start;
 			while (map->mod < map->end)
 			{

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 21:07:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 21:21:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define SEEDD 83052976562
 # define SEEDE 4
 
-# define START 30
-# define END 53
+# define START 2
+# define END 200
 
 typedef struct				s_map
 {
