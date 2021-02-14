@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 21:21:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 17:30:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 # define START 2
 # define END 200
+# define PERF 1000
 
 typedef struct				s_map
 {
@@ -41,6 +42,19 @@ typedef struct				s_map
 	unsigned long long		start;
 	unsigned long long		end;
 }							t_map;
+
+typedef struct				s_arg_data
+{
+	int						bol;
+	unsigned long long		start;
+	unsigned long long		end;
+}							t_ad;
+
+typedef struct				s_arg
+{
+	t_ad					lcg;
+	t_ad					perf;
+}							t_arg;
 
 unsigned long long	ft_lcg_empty(t_map map, unsigned long long seed);
 

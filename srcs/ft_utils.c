@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:46:03 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/11 18:03:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 17:35:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ int	ft_error(char *text)
 
 int	ft_check(int ac, char **av)
 {
-	if (!(ft_strcmp(av[1], "-LCG")) && ac >= 4)
-	{
-		if (ft_atoi(av[2]) > ft_atoi(av[3]))
-			return (ft_error("End must be higher than Start\n"));
-	}
+	if (arg.lcg.bol == 1 && arg.lcg.start > arg.lcg.end)
+		return (ft_error("End must be higher than Start\n"));
 	return (TRUE);
 }
