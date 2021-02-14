@@ -10,12 +10,12 @@ Use "make" to compile the project
 Argument to use:
 
 -LCG [Start] [End]
-> Run the LCG part, you can precise a Start and an end to search for
+> Run the LCG part, you can precise a Start and an End to search for (Optional)
 
 > Example: "% ./Find_Randomness -LCG 30 53"
 
 -perf [Value]
-> Run the performance version of LCG finder (faster and overall more effective), you can precise a Value, the program will look close to this value, up to a modulo of Value + 15
+> Run the performance version of LCG finder (faster and overall more effective), you can precise a Value (Optional), the program will look close to this value, up to a modulo of Value + 15
 
 > Example: "% ./Find_Randomness -perf 200"
 
