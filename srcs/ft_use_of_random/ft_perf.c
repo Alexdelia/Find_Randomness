@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 21:14:52 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 23:38:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:20:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@ static t_map	ft_best_map_perf(t_map *map)
 	unsigned long long	mul_end;
 	t_map				best;
 	int					i;
+	int					bol;
 
 	mul_end = map->mul + 25;
 	map->mul = map->mul - 25;
 	best.period = 0;
 	best.end = map->end;
+	map->mod = (map->end - 15);
 	i = 1;
-	while (map->mul < mul_end)
+	bol = FALSE;
+	while (map->mod <= map->end)
 	{
-		map->inc = 6;
-		while (map->inc < 30)
+		map->inc = 30;
+		while (map->inc >= 6)
 		{
-			printf("\rLoop: [%d%%]", (i * 100) / 50);
-			map->mod = (map->end - 15);
-			while (map->mod < map->end)
+			map->mul = mul_end - 50;
+			while (map->mul < mul_end)
 			{
 				map->period = ((ft_find_period(*map, SEEDA) +
 								ft_find_period(*map, SEEDB) +
@@ -44,13 +46,32 @@ static t_map	ft_best_map_perf(t_map *map)
 					best.inc = map->inc;
 					best.mod = map->mod;
 				}
-				map->mod++;
+				if (i <= 17000)
+					printf("\rLoop: [%d%%]", (i * 100) / 17000);
+				else if (bol == FALSE)
+				{
+					printf("\r\t\tFinishing, please wait a few minute.");
+					bol = TRUE;
+				}
+				// Help to erase about 3000 loops in average
+				// with:	-perf 500 ~3s73	loops: 14861
+				// without:	-perf 500 ~4s31 loops: 20417
+				if (map->period == map->mod)
+				{
+					map->mul = mul_end;
+					map->inc = 5;
+				}
+				map->mul++;
+				i++;
 			}
-			map->inc++;
+			map->inc--;
+			i++;
 		}
-		map->mul++;
+		map->mod++;
 		i++;
 	}
+	printf("\rloop: [Done]");
+	printf("\nnumber of loop: %d, for a maximum of 20417 loops", i);
 	return (best);
 }
 
@@ -66,9 +87,9 @@ int				ft_map_perf(t_arg arg)
 	ft_putstr_fd("\t\tStarting LCG performance\n", 1);
 	map = ft_best_map_perf(&map);
 	printf("\nThe best LCG found is:\n");
-	printf("\n\tMul: %llu\n\tInc: %llu\n\tMod: %llu\n",
-				map.mul, map.inc, map.mod);
-	printf("For a Score of: %llu%%\n", (map.period + 1) * 100 / map.end);
+	printf("\n\tMul: %llu\n\tInc: %llu\n\tMod: %llu\n\tPeriod: %llu\n\n",
+				map.mul, map.inc, map.mod, map.period);
+	printf("For a Score of: %llu%%\n", (map.period + 1) * 100 / map.mod);
 	if (arg.debug.bol == TRUE)
 		ft_map_debug(map, arg);
 	return (0);

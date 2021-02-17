@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:46:03 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 22:58:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:25:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	ft_check(t_arg arg, int ac, char **av)
 		return (ft_error("End must be higher than Start\n"));
 	if (arg.perf.end < 30)
 		return (ft_error("Value under 30 for performance version will give very bad result.\nPlease, use something near or way over 1000 for better result.\n"));
+	if (arg.perf.end < 100)
+		ft_putstr_fd("!!!\tValue under 100, the program might have a floating point exception\t!!!\n", 1);
 	return (TRUE);
 }
