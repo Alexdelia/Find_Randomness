@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 21:14:52 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:20:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:39:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static t_map	ft_best_map_perf(t_map *map)
 	map->mul = map->mul - 25;
 	best.period = 0;
 	best.end = map->end;
-	map->mod = (map->end - 15);
+	map->mod = map->end;
 	i = 1;
 	bol = FALSE;
-	while (map->mod <= map->end)
+	while (map->mod > best.period && map->mod > map->end - 100)
 	{
 		map->inc = 30;
 		while (map->inc >= 6)
@@ -46,8 +46,8 @@ static t_map	ft_best_map_perf(t_map *map)
 					best.inc = map->inc;
 					best.mod = map->mod;
 				}
-				if (i <= 17000)
-					printf("\rLoop: [%d%%]", (i * 100) / 17000);
+				if (i <= 5000)
+					printf("\rLoop: [%d%%]", (i * 100) / 5000);
 				else if (bol == FALSE)
 				{
 					printf("\r\t\tFinishing, please wait a few minute.");
@@ -67,7 +67,7 @@ static t_map	ft_best_map_perf(t_map *map)
 			map->inc--;
 			i++;
 		}
-		map->mod++;
+		map->mod--;
 		i++;
 	}
 	printf("\rloop: [Done]");
