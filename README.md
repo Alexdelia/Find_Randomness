@@ -7,7 +7,7 @@ Use "make" to compile the project
 
 <br />
 
-Warning: The program hasn't been optimise to handle stack overflow yet ! I never got one, even with GIANT value to look for (my program use a big array to find the period, so bigger is the modulo, bigger is this array), but take that in consideration.
+Warning: The program hasn't been optimised to handle stack overflow yet ! I never got one, even with GIANT value to look for (my program use a big array to find the period, so bigger is the modulo, bigger is this array), but take that in consideration.
 
 <br />
 
