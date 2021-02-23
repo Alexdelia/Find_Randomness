@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 22:50:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/23 13:19:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ unsigned long long	ft_find_period(t_map map, unsigned long long base_seed)
 	unsigned long long	period;
 	unsigned long long	current_seed;
 	unsigned long long	mem[map.end];
+	//struct rusage		mem_use;
 	
 	period = 0;
 	current_seed = base_seed;
@@ -49,6 +50,9 @@ unsigned long long	ft_find_period(t_map map, unsigned long long base_seed)
 		current_seed = (map.mul * current_seed + map.inc) % map.mod;
 		period++;
 	}
+	if ((getrusage(RUSAGE_SELF, &mem_use)) == -1)
+		return (0);
+	//printf("Mem used: %ld\n", mem_use.ru_maxrss);
 	return (period);
 }
 

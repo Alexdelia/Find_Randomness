@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/23 12:35:18 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/23 13:44:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdlib.h>
 
 // For getrusage
-# include <sys/time.h>
-# include <sys/resource.h>
+//# include <sys/time.h>
+//# include <sys/resource.h>
 
 # define TRUE 1
 # define FALSE 0
