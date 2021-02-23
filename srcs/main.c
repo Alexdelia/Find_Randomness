@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 15:05:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/14 23:13:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/23 13:00:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,27 @@
 
 int		main(int ac, char **av)
 {
-	t_arg	arg;
+	t_arg			arg;
+	struct rusage	mem_use;
 
 	if (ft_arg(&arg, ac, av) == FALSE)
 		return (0);
+	if (arg.mem.bol == TRUE)
+	{
+		if ((getrusage(RUSAGE_CHILDREN, &mem_use)) == -1)
+			return (-1);
+		printf("Memory used: %ld\n", mem_use.ru_maxrss);
+	}
 	if (arg.perf.bol == TRUE)
 		ft_map_perf(arg);
 	else if (arg.lcg.bol == TRUE)
 		ft_map(arg);
+	if (arg.mem.bol == TRUE)
+	{
+		if ((getrusage(-1, &mem_use)) == -1)
+			return (-1);
+		printf("Memory used: %ld\n", mem_use.ru_maxrss);
+	}
 	return (0);
 }
 
