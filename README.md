@@ -1,4 +1,7 @@
 ## Find_Randomness
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d390452c3c3489d85da6a18a59aae1e)](https://app.codacy.com/gh/Alexdelia/Find_Randomness?utm_source=github.com&utm_medium=referral&utm_content=Alexdelia/Find_Randomness&utm_campaign=Badge_Grade_Settings)
+
 Personal project, the idea is to find random sequences and use them or test them.
 
 <br />
