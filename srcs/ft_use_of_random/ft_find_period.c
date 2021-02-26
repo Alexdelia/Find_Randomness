@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:05:16 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/23 13:19:46 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/26 08:45:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ unsigned long long	ft_find_period(t_map map, unsigned long long base_seed)
 	
 	period = 0;
 	current_seed = base_seed;
+	// just initializing mem;
+	mem[0] = '\0';
 	while (ft_not_in_memory(current_seed, &*mem, period) == TRUE && period < map.mod)
 	{
 		mem[period] = current_seed;
@@ -50,8 +52,8 @@ unsigned long long	ft_find_period(t_map map, unsigned long long base_seed)
 		current_seed = (map.mul * current_seed + map.inc) % map.mod;
 		period++;
 	}
-	if ((getrusage(RUSAGE_SELF, &mem_use)) == -1)
-		return (0);
+	//if ((getrusage(RUSAGE_SELF, &mem_use)) == -1)
+	//	return (0);
 	//printf("Mem used: %ld\n", mem_use.ru_maxrss);
 	return (period);
 }
