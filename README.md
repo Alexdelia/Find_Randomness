@@ -1,6 +1,8 @@
 ## Find_Randomness
 Personal project, the idea is to find random sequences and use them or test them.
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2704c025c72249f2805b988368aabad8)](https://www.codacy.com/gh/Alexdelia/Find_Randomness/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Alexdelia/Find_Randomness&amp;utm_campaign=Badge_Grade)
+
 <br />
 
 Use "make" to compile the project
