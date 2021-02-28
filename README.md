@@ -16,6 +16,7 @@ Warning: The program hasn't been optimised to handle stack overflow yet ! I neve
 Argument to use:
 
 -LCG [Start] [End]
+
 (Please use -perf for finding map and look LCG file to understand how it work)
 > Run the LCG part, you can precise a Start and an End to search for (Optional)
 
