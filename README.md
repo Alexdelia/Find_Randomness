@@ -25,7 +25,16 @@ Argument to use:
 -perf [Value]
 > Run the performance version of LCG finder (faster and overall more effective), you can precise a Value (Optional), the program will look close to this value, up to a modulo of Value + 15
 
-> Example: "% ./Find_Randomness -perf 200"
+> Example: "% ./Find_Randomness -perf 2000
+
+-s-binary [Map]
+> It show a binary representation of the 100 first random numbers (number of 0 and 1 in number % 2)
+
+> It can take a map which is as format: Seed.Mod.Inc.Mul  Or can be used with -perf or -lcg
+
+> Example: ./Find_Randomness -perf 5000 -s-binary
+
+> Example: ./Find_Randomness -s-binary 98234985.1672.22.5013
 
 -debug
 > Used for personal use, help to debug. It show X random number of the best map found.
