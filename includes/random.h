@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/28 16:12:32 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:37:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 
 // For getrusage
 //# include <sys/time.h>
@@ -41,6 +42,7 @@
 
 typedef struct				s_map
 {
+	unsigned long long		seed;
 	unsigned long long		mul;
 	unsigned long long		inc;
 	unsigned long long		mod;
@@ -54,6 +56,7 @@ typedef struct				s_arg_data
 	int						bol;
 	unsigned long long		start;
 	unsigned long long		end;
+	t_map					map;
 }							t_ad;
 
 typedef struct				s_arg
@@ -62,6 +65,8 @@ typedef struct				s_arg
 	t_ad					perf;
 	t_ad					debug;
 	t_ad					mem;
+	t_ad					bin;
+
 }							t_arg;
 
 int					ft_arg(t_arg *arg, int ac, char **av);
@@ -71,13 +76,15 @@ unsigned long long	ft_lcg_empty(t_map map, unsigned long long seed);
 unsigned long long	ft_find_period(t_map map, unsigned long long base_seed);
 void				ft_init_map(t_map *map);
 t_map				ft_best_map(t_map *map);
-int					ft_map(t_arg arg);
-int					ft_map_perf(t_arg arg);
+t_map				ft_map(t_arg arg);
+t_map				ft_map_perf(t_arg arg);
 
 void				ft_map_debug(t_map map, t_arg arg);
 
 int					ft_strcmp(char *str, char *cmp);
 int					ft_error(char *text);
 int					ft_check(t_arg arg, int ac, char **av);
+
+void				ft_binary_show(t_map map);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/28 16:25:26 by adelille         ###   ########.fr        #
+#    Updated: 2021/02/28 17:38:13 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRCSNAME = main.c \
 			ft_use_of_random/ft_find_period.c \
 			ft_use_of_random/ft_perf.c \
 			ft_use_of_random/ft_map_debug.c \
+			ft_use_of_random/ft_binary_show.c \
 			ft_arg.c \
 			ft_utils.c
 

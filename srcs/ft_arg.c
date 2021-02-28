@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 22:18:42 by user42            #+#    #+#             */
-/*   Updated: 2021/02/23 12:50:27 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:36:38 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int			ft_arg(t_arg *arg, int ac, char **av)
 	arg->perf.bol = FALSE;
 	arg->debug.bol = FALSE;
 	arg->mem.bol = FALSE;
+	arg->bin.bol = FALSE;
 	i = 1;
 	while (av[i])
 	{
+		// -- '-' type --
 		if (av[i][0] == '-')
 		{
+			// -- LCG --
 			if (!(ft_strcmp(av[i], "-LCG") || !(ft_strcmp(av[i], "-lcg"))))
 			{
 				arg->lcg.bol = TRUE;
@@ -41,6 +44,7 @@ int			ft_arg(t_arg *arg, int ac, char **av)
 					arg->lcg.end = END;
 				}
 			}
+			// -- perf --
 			if (!(ft_strcmp(av[i], "-perf")))
 			{
 				arg->perf.bol = TRUE;
@@ -49,10 +53,32 @@ int			ft_arg(t_arg *arg, int ac, char **av)
 				else
 					arg->perf.end = PERF;
 			}
+			// -- debug --
 			if (!(ft_strcmp(av[i], "-debug")))
 				arg->debug.bol = TRUE;
+			// -- mem --
 			if (!(ft_strcmp(av[i], "-rusage")) || !(ft_strcmp(av[i], "-mem")))
 				arg->mem.bol = TRUE;
+			// -- show --
+			if ((av[i][1] == 's'))
+			{
+				// -- binary --
+				if (!(ft_strcmp(av[i], "-s-binary")))
+				{
+					arg->bin.bol = TRUE;
+					if (av[i + 4]
+							&& av[i + 1][0] != '-'
+							&& av[i + 2][0] != '-'
+							&& av[i + 3][0] != '-'
+							&& av[i + 4][0] != '-')
+					{
+						arg->bin.map.seed = ft_atoi(av[i + 1]);
+						arg->bin.map.mul = ft_atoi(av[i + 1]);
+						arg->bin.map.inc = ft_atoi(av[i + 1]);
+						arg->bin.map.mod = ft_atoi(av[i + 1]);
+					}
+				}
+			}
 		}
 		i++;
 	}

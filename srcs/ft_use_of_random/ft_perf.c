@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 21:14:52 by user42            #+#    #+#             */
-/*   Updated: 2021/02/23 12:43:33 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:00:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static t_map	ft_best_map_perf(t_map *map)
 	return (best);
 }
 
-int				ft_map_perf(t_arg arg)
+t_map			ft_map_perf(t_arg arg)
 {
 	t_map	map;
 
@@ -92,5 +92,5 @@ int				ft_map_perf(t_arg arg)
 	printf("For a Score of: %llu%%\n", (map.period + 1) * 100 / map.mod);
 	if (arg.debug.bol == TRUE)
 		ft_map_debug(map, arg);
-	return (0);
+	return (map);
 }
