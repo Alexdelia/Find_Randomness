@@ -6,11 +6,54 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 22:18:42 by user42            #+#    #+#             */
-/*   Updated: 2021/02/28 17:59:54 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 19:14:23 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "random.h"
+
+static void	ft_binary_arg(t_arg *arg, char *str)
+{
+	int		i;
+	char	**split;
+	int		count;
+	int		wlen;
+
+	i = 0;
+	count = 0;
+	wlen = 0;
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (wlen < 0)
+			{
+				ft_ps("Wrong input: You type two \".\" consecutevely after -s-binary\n");
+				return ;
+			}
+			wlen = 0;
+			count++;
+		}
+		wlen++;
+		i++;
+	}
+	if (count != 3)
+	{
+		ft_ps("Wrong input: You type less than 4 value separeted by \".\" after -s-binary\n");
+	}
+	split = ft_split(str, '.');
+	arg->bin.map.seed = ft_atoi(split[0]);
+	arg->bin.map.mul = ft_atoi(split[1]);
+	arg->bin.map.inc = ft_atoi(split[2]);
+	arg->bin.map.mod = ft_atoi(split[3]);
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
 
 int			ft_arg(t_arg *arg, int ac, char **av)
 {
@@ -66,17 +109,8 @@ int			ft_arg(t_arg *arg, int ac, char **av)
 				if (!(ft_strcmp(av[i], "-s-binary")))
 				{
 					arg->bin.bol = TRUE;
-					if (av[i + 4]
-							&& av[i + 1][0] != '-'
-							&& av[i + 2][0] != '-'
-							&& av[i + 3][0] != '-'
-							&& av[i + 4][0] != '-')
-					{
-						arg->bin.map.seed = ft_atoi(av[i + 1]);
-						arg->bin.map.mul = ft_atoi(av[i + 1]);
-						arg->bin.map.inc = ft_atoi(av[i + 1]);
-						arg->bin.map.mod = ft_atoi(av[i + 1]);
-					}
+					if (av[i + 1] && av[i + 1][0] != '-')
+						ft_binary_arg(*&arg, av[i + 1]);
 				}
 			}
 		}
