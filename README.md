@@ -17,7 +17,7 @@ Argument to use:
 
 -LCG [Start] [End]
 
-(Please use -perf for finding map and look LCG file to understand how it work)
+(Please use -perf to find maps and look at LCG file to understand how it work)
 > Run the LCG part, you can precise a Start and an End to search for (Optional)
 
 > Example: "% ./Find_Randomness -LCG 30 53"
