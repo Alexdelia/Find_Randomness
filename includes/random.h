@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:10:26 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/23 13:44:35 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 16:12:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define START 2
 # define END 200
 # define PERF 1000
+
+# define dlcg(seed, mul, inc, mod) (((mul) * (seed) + (inc)) % (mod))
 
 typedef struct				s_map
 {
