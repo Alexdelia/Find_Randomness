@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:43:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/28 17:41:39 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:59:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_binary_show(t_map map)
 				(map.seed % 1 ? '>' : ' '),
 				right, map.seed);
 		map.seed = dlcg(map.seed, map.mul, map.inc, map.mod);
-		sleep(0.4);
+		usleep(400);
 		printf("\r\t - \t\t\t\t                 ");
 	}
 	printf("\nDone\n");

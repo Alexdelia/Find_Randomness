@@ -6,12 +6,12 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/28 17:38:13 by adelille         ###   ########.fr        #
+#    Updated: 2021/02/28 17:56:34 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 	Find_Randomness
-CC = 	gcc -Wall -Werror -Wextra
+CC = 	clang -Wall -Werror -Wextra
 RM = 	rm -rf
 # FLAGS =	-O2
 

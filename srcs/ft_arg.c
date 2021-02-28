@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 22:18:42 by user42            #+#    #+#             */
-/*   Updated: 2021/02/28 17:36:38 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:59:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			ft_arg(t_arg *arg, int ac, char **av)
 			if (!(ft_strcmp(av[i], "-rusage")) || !(ft_strcmp(av[i], "-mem")))
 				arg->mem.bol = TRUE;
 			// -- show --
-			if ((av[i][1] == 's'))
+			if (av[i][1] == 's')
 			{
 				// -- binary --
 				if (!(ft_strcmp(av[i], "-s-binary")))
